@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read the version from the .toc
+        id: v
+        run: echo "version=$(grep -m1 '^## Version:' HunterTrail/HunterTrail.toc | sed 's/^## Version:[[:space:]]*//' | tr -d '\r')" >> "$GITHUB_OUTPUT"
+
+      - name: Publish a release if this version is new
+        env:
+          GH_TOKEN: ${{ github.token }}
+          V: ${{ steps.v.outputs.version }}
+        run: |
+          if gh release view "v$V" >/dev/null 2>&1; then
+            echo "v$V is already released"
+            exit 0
+          fi
+          zip -r HunterTrail.zip HunterTrail -x '*.DS_Store'
+          gh release create "v$V" HunterTrail.zip --title "HunterTrail v$V" --target "$GITHUB_SHA" --notes "HunterTrail $V"
