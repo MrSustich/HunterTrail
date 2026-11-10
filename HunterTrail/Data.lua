@@ -227,6 +227,9 @@ ns.tabs = {
   }},
 
   { name = "Change Log", lines = {
+    "#2.13.0",
+    "-The minimap button is now a gold H. Click it to open or close HunterTrail, and drag it around the map.",
+    "",
     "#2.12.0",
     "-Guide text rewritten in fresh wording. Credits added below.",
     "",
