@@ -1,0 +1,10 @@
+## Interface: 16001, 120105
+## Title: Hunter Trail (Mobalytics guide)
+## Notes: Kyle's Beast Mastery hunter leveling guide for WoW Forever, one tab per section. /trail to open.
+## Author: Kyle
+## Version: 2.11.0
+## SavedVariables: HunterTrailDB
+## SavedVariablesPerCharacter: HunterTrailCharDB
+
+Data.lua
+HunterTrail.lua

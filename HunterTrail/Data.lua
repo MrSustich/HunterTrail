@@ -1,0 +1,559 @@
+-- Guide data, summarized from the Mobalytics "WoW Forever Hunter Leveling Guide (Level 1-60)"
+-- by Feor, page dated Nov 10, 2026 (read Nov 10, 2026).
+-- Professions tab: Leatherworking route from the AllThingsHow WoW Forever Leatherworking guide, updated Nov 8, 2026 (read Nov 10, 2026).
+-- Cooking route and prices from Timesaver's WoW Forever cooking tool (route checked Nov 8, US Alliance prices Nov 10, 2026);
+-- Expert and Artisan Cooking from ConquestCapped's WoW Forever cooking guide (Nov 10, 2026).
+-- First Aid route and tiers from AllThingsHow's WoW Forever First Aid guide (updated Nov 8, 2026); Expert book from Wowhead's Forever guide (Nov 3, 2026).
+-- Pets tab: rares, pet skills and pet training from Guided's tame and train guide (live, Nov 8 state, published Nov 9, 2026).
+-- Training: rank levels from AllThingsHow's hunter abilities list (updated Nov 8, 2026); buy and skip tips from ConquestCapped (updated Nov 7, 2026).
+-- Ammo and quivers: Senseos WoW Forever item database (game files, build 1.60.1).
+-- Class Quests tab: names, givers and objectives from ForeverDB's read of the game files (build 1.60.1.70862, Nov 9, 2026);
+-- night elf pet chain from WoW Forever Codex; Hunter's Charm giver and spot from UrGameTips.
+-- Gear tab: Alliance picks from Timesaver's WoW Forever Beast Mastery hunter leveling gear list (data checked Nov 6, 2026).
+-- Dungeons tab: level ranges from Chaos Boost's WoW Forever dungeon list (updated Nov 9, 2026); drops from the gear list.
+-- Line markup: "#" heading, "-" bullet, "!" note (orange), "=" macro line, "" blank, else paragraph.
+local _, ns = ...
+
+ns.source = "Mobalytics hunter leveling guide by Feor, dated Nov 10, 2026"
+
+ns.tabs = {
+  { name = "Level Walkthrough", walkthrough = true },
+
+  { name = "Talents", talents = true, lines = {
+    "#The guide's build",
+    "-31 Beast Mastery / 20 Marksmanship / 0 Survival.",
+    "-Its leveling path spends one point a level from 10 to 60.",
+  }},
+
+  { name = "Professions", lines = {
+    "#Leatherworking",
+    "AllThingsHow's WoW Forever route, updated Nov 8, 2026. Craft counts are rough.",
+  }, after = {
+    "lwRoute",
+    {
+      "",
+      "#Leatherworking: along the way",
+      "-From skill 20 you can make a Camp Tent (5 Light Leather): rested XP for you and nearby players, up to 5% of a level.",
+      "-At 140, learn the Tanning Rack blueprint (5 Medium Leather, 3 Fine Thread, 2 Simple Wood). It goes at a campfire, gives the Camp Tent bonus, and later recipes need it.",
+      "-At 300 you can learn the Sewing Machine blueprint (1 Undeath Engine, 5 Rugged Leather, 1 Rune Thread).",
+      "-4 Light = 1 Medium, 5 Medium = 1 Heavy, 6 Heavy = 1 Thick, 6 Thick = 1 Rugged.",
+      "-Light and Medium hides cure with Salt. Cured Heavy Hide takes 1 Heavy Hide and 3 Salt.",
+      "",
+      "#Leatherworking: totals, 1-300",
+      "-Leather: 693 Light, 315 Medium, 663 Heavy, 440 Thick, 1020 Rugged.",
+      "-Thread: 182 Coarse, 178 Fine, 160 Silken, 90 Rune.",
+      "-Dye: 60 Black, 30 Orange, 15 Gray, 8 Green.",
+      "-Also 60 Bolt of Silk Cloth, 46 Cured Heavy Hide, 25 Cured Light Hide, 25 Cured Medium Hide.",
+      "",
+      "#Cooking",
+      "Timesaver's cheapest route, checked Nov 8, 2026, with Alliance auction prices from Nov 10.",
+    },
+    "cookRoute",
+    {
+      "",
+      "#Cooking: along the way",
+      "-Expert Cookbook: about 1g from Shandrina at Silverwind Refuge, Ashenvale.",
+      "-Artisan: the quest Clamlette Surprise from Dirge Quikcleave in Gadgetzan, Tanaris. It needs skill 225 and level 35. Daryl Riknussun in Ironforge starts it for Alliance.",
+      "-Clamlette Surprise asks for 12 Giant Egg, 10 Zesty Clam Meat and 20 Alterac Swiss.",
+      "-Most new Cooking recipes give Well Fed with +5% experience.",
+      "",
+      "#Cooking: totals, 1-300",
+      "-524 crafts. Materials about 3g 58s, recipes about 73s, so about 4g 32s in all.",
+      "-Selling what you cook gets about 5g 27s back, so the route ends about 95s ahead.",
+      "",
+      "#First Aid",
+      "AllThingsHow's WoW Forever route, updated Nov 8, 2026, and Wowhead's Forever guide for the Expert book. Craft counts are rough.",
+    },
+    "faRoute",
+    {
+      "",
+      "#First Aid: along the way",
+      "-Caps: Apprentice 75, Journeyman 150, Expert 225, Artisan 300. See the trainer before each cap.",
+      "-Expert: the book Expert First Aid - Under Wraps, sold by Deneb Walker.",
+      "-Artisan: the quest Triage.",
+      "-First Aid Kit at skill 20 gives Stamina to you and nearby seated players.",
+      "-New in Forever: healing potions (Minor through Major) and curatives (anti-venoms, poultices, tourniquets) are First Aid crafts.",
+      "-Blueprints teach Toxin Study at 140 and the Plague Doctor's Laboratory at 300.",
+      "",
+      "#First Aid: totals, 1-300",
+      "-Cloth: about 165 Linen, 150 Wool, 135 Silk, 95 Mageweave, 67 Runecloth.",
+    },
+  }},
+
+  { name = "Gear", after = {
+    "gear",
+    {
+      "",
+      "#Ammo and quivers",
+      "Alliance vendors from Senseos's WoW Forever item database. The quiver speed bonus only works with a bow. Heavy Quiver and Quickdraw Quiver are Leatherworking crafts too.",
+    },
+    "ammo",
+  }, lines = {
+    "#Leveling best in slot, 25-60",
+    "Alliance picks from Timesaver's WoW Forever Beast Mastery leveling gear list (checked Nov 6, 2026). Each row is the upgrade for that slot at that level. A level turns green once you can wear it. Tick the box when you get an item. It ticks on the Dungeons tab too.",
+  }},
+
+  { name = "Dungeons", grid = "dungeons", lines = {
+    "#Dungeons by level",
+    "Level ranges from Chaos Boost's WoW Forever dungeon list (updated Nov 9, 2026). Item drops come from the gear list, one row each with the boss that drops it. Quest means a quest reward tied to that dungeon. Your range turns green. Tick the box when you get an item. It ticks on the Gear tab too.",
+  }},
+
+  { name = "Class Quests", grid = "quests", lines = {
+    "#Hunter-only quests",
+    "Alliance and night elf side. Names, givers and objectives come from ForeverDB's read of the WoW Forever game files (Nov 9). No guide from the live game covers these yet, so a reward no source names says Not listed. Tick the box when you finish one.",
+  }},
+
+  { name = "Gameplay and Rotation", lines = {
+    "#Before combat",
+    "-Hunter's Mark the target.",
+    "-Back off to get distance.",
+    "",
+    "#One mob (usually an elite)",
+    "-Open with Hunter's Mark.",
+    "-Open with Aimed Shot once you have it. Before that, focus on Auto Shot and Arcane Shot.",
+    "-Between Auto Shots, move away if the mob runs at you. Never let it touch you.",
+    "-Serpent Sting is a good early global after Aimed Shot and Arcane Shot.",
+    "-Concussive Shot to build distance.",
+    "-If it reaches you and can be slowed, Wing Clip, and weave in a Raptor Strike.",
+    "-Repeat.",
+    "Toggling your pet's Growl makes the mob bounce between you and the pet. Once you have Aspect of the Cheetah it's easier to turn Growl off, kite, and let the pet kill it.",
+    "",
+    "#Multi-mob (fastest leveling)",
+    "Keep Auto Shot and your melee swing on cooldown all the time, with one or two mobs on you.",
+    "-Auto Shot a mob, then pick the next one. Your next Auto Shot goes to it.",
+    "-Space two mobs: melee and Raptor Strike the close one, Auto Shot the far one.",
+    "-With Serpent Sting, put it on both (costs mana).",
+    "-Arcane Shot and Concussive Shot the mobs.",
+    "-Wing Clip to space both once you have it.",
+    "-If they stack up, Multi-Shot is very efficient.",
+    "-Your pet is a second damage source: give it its own mob, or have it finish low mobs while you space the ranged one.",
+    "",
+    "-As of Nov 7 the author says Summon Hawk does less than Arcane Shot, so use Arcane Shot over Summon Hawk for now.",
+  }},
+
+  { name = "Consumables", lines = {
+    "Not required, but they make leveling smoother.",
+    "",
+    "#Experience food (new in Forever)",
+    "Most food gives +5% experience. Buy the cheapest, even low-level food:",
+    "-Smoked Sagefish",
+    "-Longjaw Mud Snapper",
+    "-Bristle Whisker Catfish",
+    "-Smoked Bear Meat",
+    "-Crispy Bat Wing",
+    "-Twice-Spiced Raptor Slice",
+    "",
+    "#Potions",
+    "Health and mana potions are your most useful buys. Most elixirs need a profession, and the auction house is a waste of early gold.",
+    "-Minor Healing / Minor Mana Potion",
+    "-Lesser Healing / Lesser Mana Potion",
+    "-Healing / Mana Potion",
+    "-Greater Healing / Greater Mana Potion",
+    "-Superior Healing / Superior Mana Potion",
+    "-Major Healing / Major Mana Potion",
+  }},
+
+  { name = "Pets", lines = {
+    "#Pet skills",
+    "From Guided's live-game tame and train guide (Nov 8). Tame a beast that knows the rank, fight with it until you learn the skill, then teach your pet in Beast Training. Cost is in training points. Ranks don't have to be learned in order.",
+  }, after = {
+    "petSkills",
+    {
+      "",
+      "#Training",
+      "Pet trainer:",
+      "-Growl, Great Stamina, Natural Armor and the resistances come from the Pet Trainer.",
+      "-Keep Growl on autocast while solo. Turn it off in groups so your pet doesn't pull threat from the tank.",
+      "-The Pet Trainer can reset your pet's skills for a fee.",
+      "Hunter trainer (ConquestCapped, Nov 7):",
+      "-Only Track Beasts and Track Humanoids matter while leveling. Skip the other tracking spells.",
+      "-Save gold for 60, your biggest trainer visit.",
+      "-Don't skip: Feign Death and Lacerate at 30, Aspect of the Pack and Volley at 40, Tranquilizing Shot at 60.",
+      "Your next visit is green.",
+    },
+    "training",
+    {
+      "",
+      "#Rare pets with known spots (live game, Nov 8-9 reports)",
+      "Tame at: Tame Beast needs you at the pet's level or higher. These are all elites, so the table adds 2 levels. It turns green once you're there.",
+    },
+    "pets",
+  }},
+
+  { name = "Stat Priority", lines = {
+    "-Agility: the top stat, raising your and your pet's damage.",
+    "-Attack Power: also boosts you and the pet, but no crit, so a bit behind Agility unless there's a lot more of it.",
+    "-Stamina: more health for you and the pet, so you can tank and pull more.",
+    "-Spirit: great once you have Bestial Discipline. Early on it only shortens eating and drinking.",
+    "-Intellect: bigger mana pool and faster weapon skill gains. Helps in long fights.",
+    "-Crit / Hit: rare early. Raw stats usually win while leveling. 5% hit means you never miss mobs your level, which isn't reachable early.",
+  }},
+
+  { name = "Macros", lines = {
+    "Make these with /macro. One per box.",
+    "",
+    "#Heal or revive pet",
+    "=/cast [target=pet,dead] Revive Pet; [target=pet,exists] Mend Pet; Revive Pet",
+    "",
+    "#Feign Death that interrupts your cast",
+    "=#showtooltip",
+    "=/stopcasting",
+    "=/cast Feign Death",
+    "",
+    "#Drop Cheetah without a global cooldown",
+    "=/cancelaura Aspect of the Cheetah",
+    "",
+    "#Eagle Eye you can spam",
+    "=#showtooltip",
+    "=/cast !Eagle Eye",
+    "",
+    "#Scatter Shot that won't break itself",
+    "=#showtooltip Scatter Shot",
+    "=/stopattack",
+    "=/stopcasting",
+    "=/cast Scatter Shot",
+    "=/stopattack",
+    "",
+    "#Flare you can spam",
+    "=#showtooltip",
+    "=/cast !Flare",
+    "",
+    "#Burst (works for any race with a damage racial)",
+    "=#showtooltip Rapid Fire",
+    "=/cast Rapid Fire",
+    "=/cast Blood Fury",
+    "=/cast Elune's Light",
+    "=/cast Berserking",
+  }},
+
+  { name = "Change Log", lines = {
+    "#November 7",
+    "-Added the Summon Hawk note in the rotation.",
+    "-Added the Raptor's End bow (Alliance) and the Malignant Root ring to 21-30.",
+    "-Added to 31-40.",
+    "",
+    "The page itself is dated Nov 10, 2026.",
+  }},
+
+}
+
+-- Level Walkthrough brackets
+ns.walkthrough = {
+  { lo = 1, hi = 10, lines = {
+    "-As soon as you leave the starting zone, buy a Hornwood Recurve Bow.",
+    "-Arcane Shot at 6 is your first big ability. If speed matters, skip training until 6. Otherwise train Serpent Sting at 4.",
+    "-Concussive Shot at 8.",
+    "-Level 10 is your biggest spike: do the pet quest from your class trainer.",
+    "-Visit weapon masters in the cities for weapon skills.",
+    "",
+    "#Weapon skills (Horde / Alliance trainer)",
+    "-Bows: Orgrimmar / Darnassus",
+    "-Crossbows: Undercity / Stormwind, Ironforge",
+    "-Guns: Thunder Bluff / Ironforge",
+    "-Daggers and Fist Weapons: Orgrimmar / Darnassus",
+    "-Staves: Orgrimmar, Thunder Bluff / Stormwind, Ironforge, Darnassus",
+    "-Swords and Two-Handed Swords: Undercity / Stormwind",
+    "-Two-Handed Axes: Orgrimmar / Ironforge",
+  }},
+  { lo = 11, hi = 20, lines = {
+    "-At 11 buy a Laminated Recurve Bow, or as soon as you can afford it.",
+    "-Wing Clip at 12.",
+    "-Keep your pet's abilities leveled. It's the biggest speed-up.",
+    "-At 12-13: Ragefire Chasm (Horde) or Hall of Thanes (Alliance) for a break from questing.",
+    "-Alliance: Calibrated Blunderbuss from a chain that starts with a map dropped by the Dark Iron Spy in Dun Morogh.",
+    "-Horde: no guaranteed gun or bow. Barbaric Crossbow is a lucky drop.",
+    "-Solo: Fine Longbow from vendors in Westfall, the Barrens, Silverpine and Loch Modan.",
+    "",
+    "#Dungeons (do once for quests, don't farm)",
+    "-16-18 Ruins of Lordaeron (Horde): no ranged weapons, guaranteed Forsaken Greataxe.",
+    "-16-18 The Deadmines (Alliance): Tunic of Westfall from a quest.",
+    "-17-19 Wailing Caverns (Horde): Venomstrike can drop, don't chase it. Take Crescent Staff from Leader of the Fangs.",
+  }},
+  { lo = 21, hi = 30, lines = {
+    "-At 20 train Aspect of the Cheetah right away, and the new Growl rank at the pet trainer.",
+    "-Night elves: head to Ashenvale. Horde splits between Southern Barrens and Stonetalon.",
+    "-Alliance: Raptor's End bow from a raptor chain at Whelgar's Excavation Site in the Wetlands. Mobs 22-27, last one 29. Aim to do it around 25.",
+    "-Wetlands: the Nightveiled Rotheap (level 32 elite) drops an item for the Malignant Root ring. Kite it with Serpent Sting and Cheetah, or group up.",
+    "",
+    "#Dungeons (once if you like, don't farm)",
+    "-20-24 Shadowfang Keep (Horde): no ranged weapon, but the Seal of Sylvanas ring.",
+    "-22-24 Stormwind Stockade (Alliance): Concealed Hand Crossbow, Defias Renegade Ring, Kam's Walking Stick, Defias Jailbreakers, and Belt of Vindication from a quest.",
+    "-24-28 Blackfathom Deeps: Naga Heartpiercer and Fallenroot Longbow. Two shots at a bow if you run it for quests.",
+    "-24-28 Excavation Site: Golemsight Long Gun, a strong pick with 6 Agility.",
+    "-28-32 City of Dalaran: chase the Felbough Arm (melee) over the Gravespike Repeater. Also Garb of Fallen Felbark and Unstable Crystalline Shoulderpads.",
+  }},
+  { lo = 31, hi = 40, lines = {
+    "-Train Feign Death at 30 as soon as you can. Great for dropping mobs and skipping pulls.",
+    "-In Stranglethorn Vale, do the Nesingwary's Expedition chain for the Master Hunter's Bow or Rifle.",
+    "",
+    "#Dungeon",
+    "-29-33 Gnomeregan (best for Alliance): Triprunner Dungarees from a quest. Chase Thermaplugg Medal of Honor and the Glass Shooter (rare spawn, low odds).",
+  }},
+  { lo = 41, hi = 50, lines = {
+    "-Shen'dralas, new in Forever, is in southern Desolace near the Valley of Bones.",
+    "-Kill Corpsefeeder, a level 45 elite that a BM hunter can solo, for the Clacking Carapace Spaulders, 1g 30s and 4,500 XP.",
+  }},
+  { lo = 51, hi = 60, lines = {
+    "The guide has no steps for 51-60 yet.",
+  }},
+}
+
+-- Fallback talent order from Kyle's Hunter Trail page (live planner, build 1.60.1)
+ns.talentFallback = {
+  {25, 25, "Summon Hawk"},
+  {26, 29, "Ferocity to 4/5"},
+  {30, 30, "Intimidation"},
+  {31, 31, "Unleashed Fury to 5/5"},
+  {32, 32, "Ferocity to 5/5"},
+  {33, 34, "Bestial Discipline 2/2"},
+  {35, 39, "Frenzy 5/5"},
+  {40, 40, "Bestial Wrath"},
+  {41, 45, "Lethal Attacks 5/5 (Marksmanship)"},
+  {46, 50, "Careful Aim 5/5"},
+  {51, 53, "Efficiency 3/5"},
+  {54, 55, "Rapid Killing 2/2"},
+  {56, 60, "Mortal Shots 5/5"},
+}
+
+-- Rare pets for the table on the Pets tab (live reports from guided.news, Nov 9, 2026).
+-- tameAt = highest pet level + 2, since they are all elites.
+ns.rarePets = {
+  { name = "Takk the Leaper", family = "Raptor", level = "19", tameAt = 21, zone = "The Barrens", where = "60.4, 9.4 or 60.6, 15.6" },
+  { name = "Humar the Pridelord", family = "Cat (black lion)", level = "23", tameAt = 25, zone = "The Barrens", where = "Trees north of Ratchet, 62.0, 33.4. Fast 1.3 swing." },
+  { name = "Koartul", family = "Turtle", level = "25", tameAt = 27, zone = "Hillsbrad Foothills", where = "61.6, 33.8" },
+  { name = "Blind Hunter", family = "Bat", level = "32", tameAt = 34, zone = "Razorfen Kraul (dungeon)", where = "The bat area inside the dungeon" },
+  { name = "Vile Sting", family = "Scorpid", level = "35", tameAt = 37, zone = "Thousand Needles", where = "71.8, 69.4 or 66.6, 83.0" },
+  { name = "Zopilote", family = "Carrion Bird", level = "43", tameAt = 45, zone = "Tanaris", where = "48.4, 32.8 or 51.4, 21.4" },
+  { name = "Zaricotl", family = "Carrion Bird", level = "55-56", tameAt = 58, zone = "Badlands", where = "39.8, 55.8 or 52.6, 17.6" },
+}
+
+-- Leveling best in slot for the Gear tab (Alliance column of Timesaver's list, checked Nov 6, 2026).
+-- Each entry: level the upgrade is for, slot, item, where it comes from.
+ns.gear = {
+  { 25, "Head", "Geomancer Headdress", "Razorfen Kraul: Roogug" },
+  { 25, "Neck", "Replica Crescent Necklace", "Quest: Gleaming Crescent Necklace (Ashenvale)" },
+  { 25, "Shoulder", "Serpent's Shoulders", "Wailing Caverns: Lady Anacondra" },
+  { 25, "Back", "Glowing Lizardscale Cloak", "Wailing Caverns: Skum" },
+  { 25, "Chest", "Tunic of Westfall", "Quest: The Defias Brotherhood (Deadmines)" },
+  { 25, "Wrist", "Demonhide Bracers", "Quest: Morganth (Redridge)" },
+  { 25, "Hands", "Gloves of the Fang", "Wailing Caverns: Druid of the Fang" },
+  { 25, "Waist", "Belt of Vindication", "Quest: The Fury Runs Deep (Stockade)" },
+  { 25, "Legs", "Worgpelt Leggings", "Shadowfang Keep: Wolf Master Nandos" },
+  { 25, "Feet", "Footpads of the Fang", "Wailing Caverns: Lord Serpentis" },
+  { 25, "Ring", "Lavishly Jeweled Ring", "Deadmines: Gilnid" },
+  { 25, "Ring", "First Mate Band", "Deadmines: Mr. Smite" },
+  { 25, "Trinket", "Roogug's Severed Head", "Razorfen Kraul: Roogug" },
+  { 25, "Trinket", "Lookie's Spyglass", "Deadmines: Cookie" },
+  { 25, "Main hand", "Impaling Harpoon", "Deadmines: Captain Greenskin" },
+  { 25, "Ranged", "Fallenroot Longbow", "Blackfathom Deeps: Lorgus Jett" },
+
+  { 30, "Head", "Humbert's Helm", "Drop: Dun Garok Rifleman (Hillsbrad)" },
+  { 30, "Back", "Explorer's League Dustcover", "Quest: Prehistoric Prism (Excavation Site)" },
+  { 30, "Chest", "Garb of Florid Feathers", "Excavation Site: Shadetooth" },
+  { 30, "Hands", "Defias Jailbreakers", "Stockade: Bazil Thredd" },
+  { 30, "Ring", "Seal of Wrynn", "Quest: An Audience with the King (Stormwind)" },
+  { 30, "Ring", "Monkey Ring", "Quest: Willix the Importer (Razorfen Kraul)" },
+  { 30, "Ranged", "Golemsight Long Gun", "Excavation Site: Relic Guardian" },
+
+  { 35, "Neck", "Scorn's Icy Choker", "Scarlet Monastery: Scorn" },
+  { 35, "Shoulder", "Unstable Crystalline Shoulderpads", "Drop: Unstable Sentinel (Alterac Mountains)" },
+  { 35, "Back", "Tattered Kirin Tor Cloak", "Drop: Seeking Remnant (Alterac Mountains)" },
+  { 35, "Wrist", "Charged Leather Bracers", "Quest: Power Stones (Uldaman)" },
+  { 35, "Hands", "Tiger Hunter Gloves", "Quest: Tiger Mastery (Stranglethorn)" },
+  { 35, "Waist", "Slitherwrap Girdle", "Drop: Mana Devourer (Alterac Mountains)" },
+  { 35, "Legs", "Triprunner Dungarees", "Quest: The Grand Betrayal (Gnomeregan)" },
+  { 35, "Ring", "Field Researcher's Loop", "Quest: Greater Friend of the Library" },
+  { 35, "Ring", "Ring of Ruin", "Quest: The Legend of Stalvan (Duskwood)" },
+  { 35, "Main hand", "Felbough Arm", "Drop: Fel Ancient (Alterac Mountains)" },
+  { 35, "Ranged", "Spellsever Crossbow", "Scarlet Monastery: Arcanist Doan" },
+
+  { 40, "Head", "Raging Berserker's Helm", "Scarlet Monastery: Herod" },
+  { 40, "Neck", "Glowing Eye of Mordresh", "Razorfen Downs: Mordresh Fire Eye" },
+  { 40, "Shoulder", "Arcmetal Shoulders", "Quest: Book of the Ancients (Desolace)" },
+  { 40, "Chest", "Scarlet Chestpiece", "Scarlet Monastery: Scarlet Champion" },
+  { 40, "Wrist", "Duracin Bracers", "Quest: Power Stones (Uldaman)" },
+  { 40, "Hands", "Scarlet Gauntlets", "Scarlet Monastery: Scarlet Centurion" },
+  { 40, "Waist", "Rusted Troll War Belt", "Quest: Shady Saltseers" },
+  { 40, "Legs", "Malleable Chain Leggings", "Quest: Apprentice's Duties (Wetlands)" },
+  { 40, "Feet", "Manascale Treads", "Drop: Mana Devourer (Alterac Mountains)" },
+  { 40, "Ranged", "Baelog's Shortbow", "Uldaman: Baelog" },
+
+  { 45, "Trinket", "Thunderbrew's Boot Flask", "Quest: Sweet Amber (Westfall)" },
+  { 45, "Ranged", "Truthseeker's Bow", "Quest: Greater Friend of the Library" },
+
+  { 50, "Waist", "Seared Mail Girdle", "Quest: Fiery Menace! (Searing Gorge)" },
+  { 50, "Ranged", "Verdant Keeper's Aim", "Quest: Corruption of Earth and Seed (Maraudon)" },
+
+  { 55, "Head", "Clayridge Helm", "Quest: A Little Help From My Friends (Un'Goro)" },
+  { 55, "Neck", "Opaline Medallion", "Quest: Wildkin of Elune (Winterspring)" },
+  { 55, "Ranged", "Thornflinger", "Quest: Wildkin of Elune (Winterspring)" },
+
+  { 60, "Head", "Black Dragonscale Helm", "Crafted: Leatherworking" },
+  { 60, "Neck", "Amulet of the Darkmoon", "Quest: 1200 Tickets (Darkmoon Faire)" },
+  { 60, "Shoulder", "Shadowcraft Spaulders", "Stratholme: Cannon Master Willey" },
+  { 60, "Back", "Shifting Cloak", "Crafted: Leatherworking" },
+  { 60, "Chest", "Dawn Armor", "Crafted: Leatherworking" },
+  { 60, "Wrist", "Spitfire Bracers", "Crafted: Leatherworking" },
+  { 60, "Hands", "Devilsaur Gauntlets", "Crafted: Leatherworking" },
+  { 60, "Waist", "Stalker's Mail Belt", "Crafted: Leatherworking" },
+  { 60, "Legs", "Devilsaur Leggings", "Crafted: Leatherworking" },
+  { 60, "Feet", "Shadowcraft Boots", "Scholomance: Rattlegore" },
+  { 60, "Ring", "Ocean's Breeze", "Quest: A Hero's Reward (Azshara)" },
+  { 60, "Trinket", "Frozen Heart of the Mountain", "Crafted: Enchanting" },
+  { 60, "Main hand", "Legionite Glaive", "Crafted: Blacksmithing" },
+  { 60, "Ranged", "Core Marksman Rifle", "Crafted: Engineering" },
+}
+
+-- Dungeons in level order for the Dungeons tab (Chaos Boost, updated Nov 9, 2026).
+-- Each entry: lowest level, highest level, name, extra line or nil, hunter drops as { item, boss or quest }.
+ns.dungeons = {
+  { 13, 18, "Ragefire Chasm", "Orgrimmar, mostly Horde quests", {} },
+  { 13, 18, "Hall of Thanes", "New in WoW Forever", {} },
+  { 15, 20, "Ruins of Lordaeron", "New, reached through Horde land", { { "Bloodied Chestwraps", "Viktor the Vile" }, { "Witherbite Bracers", "Witherfang" }, { "Bonerust Leggings", "Bjork" } } },
+  { 15, 22, "The Deadmines", nil, { { "Impaling Harpoon", "Captain Greenskin" }, { "Lavishly Jeweled Ring", "Gilnid" }, { "First Mate Band", "Mr. Smite" }, { "Lookie's Spyglass", "Cookie" }, { "Tunic of Westfall", "Quest reward" }, { "Bravo's Armbands", "Quest reward" } } },
+  { 17, 24, "Wailing Caverns", nil, { { "Venomstrike", "Lord Serpentis" }, { "Footpads of the Fang", "Lord Serpentis" }, { "Serpent's Shoulders", "Lady Anacondra" }, { "Belt of the Fang", "Lady Anacondra" }, { "Leggings of the Fang", "Lord Cobrahn" }, { "Glowing Lizardscale Cloak", "Skum" }, { "Gloves of the Fang", "Druid of the Fang" }, { "Crescent Staff", "Quest reward" } } },
+  { 20, 26, "Shadowfang Keep", nil, { { "Worgpelt Leggings", "Wolf Master Nandos" } } },
+  { 22, 28, "Blackfathom Deeps", nil, { { "Fallenroot Longbow", "Lorgus Jett" }, { "Band of the Fist", "Quest reward" } } },
+  { 24, 29, "Excavation Site", nil, { { "Golemsight Long Gun", "Relic Guardian" }, { "Garb of Florid Feathers", "Shadetooth" }, { "Explorer's League Dustcover", "Quest reward" } } },
+  { 25, 29, "The Stockade", nil, { { "Defias Jailbreakers", "Bazil Thredd" }, { "Belt of Vindication", "Quest reward" } } },
+  { 28, 33, "City of Dalaran", "New, attunement starts in Southshore", {} },
+  { 29, 38, "Gnomeregan", nil, { { "Triprunner Dungarees", "Quest reward" } } },
+  { 29, 38, "Razorfen Kraul", nil, { { "Geomancer Headdress", "Roogug" }, { "Roogug's Severed Head", "Roogug" }, { "Armor Piercer", "Razorfen Spearhide" }, { "Monkey Ring", "Quest reward" } } },
+  { 30, 46, "Scarlet Monastery", "Graveyard 30-38, Library 33-41, Armory 36-44, Cathedral 38-46", { { "Spellsever Crossbow", "Arcanist Doan" }, { "Raging Berserker's Helm", "Herod" }, { "Scorn's Icy Choker", "Scorn" }, { "Scarlet Chestpiece", "Scarlet Champion" }, { "Scarlet Gauntlets", "Scarlet Centurion" } } },
+  { 35, 40, "The Drowned City", "New in WoW Forever", {} },
+  { 36, 45, "Uldaman", nil, { { "Baelog's Shortbow", "Baelog" }, { "Duracin Bracers", "Quest: Power Stones" } } },
+  { 37, 46, "Razorfen Downs", nil, { { "Glowing Eye of Mordresh", "Mordresh Fire Eye" } } },
+  { 40, 45, "Krol'dok Stronghold", "New in WoW Forever", {} },
+  { 40, 47, "Zul'Farrak", nil, {} },
+  { 45, 51, "Maraudon", nil, { { "Verdant Keeper's Aim", "Quest reward" } } },
+  { 48, 53, "Alcaz Prison", "New in WoW Forever", {} },
+  { 50, 55, "Temple of Atal'Hakkar", nil, {} },
+  { 52, 60, "Blackrock Depths", nil, {} },
+  { 55, 60, "Blackmaw Hold", "New in WoW Forever", {} },
+  { 57, 60, "Lower Blackrock Spire", nil, {} },
+  { 58, 60, "Dire Maul East", nil, {} },
+  { 58, 60, "The Shaper's Terrace", "New in WoW Forever", {} },
+  { 58, 60, "Stratholme Live", nil, { { "Shadowcraft Spaulders", "Cannon Master Willey" } } },
+  { 58, 60, "Stratholme Undead", nil, {} },
+  { 58, 60, "Scholomance", nil, { { "Shadowcraft Boots", "Rattlegore" } } },
+  { 60, 60, "Upper Blackrock Spire", nil, {} },
+  { 60, 60, "Dire Maul West", nil, {} },
+  { 60, 60, "Dire Maul North", nil, {} },
+}
+
+-- Pet skills for the Pets tab (Guided, live game, Nov 8 state).
+-- Each entry: skill and rank, pet level needed, training points, beast that teaches it, extra line or nil.
+ns.petSkills = {
+  { "Bite 1", 1, 1, "Night Web Spider (3-4), Tirisfal Glades" },
+  { "Bite 2", 8, 4, "Prowler (9-10), eastern Elwynn Forest", "Near Eastvale Logging Camp" },
+  { "Bite 3", 16, 7, "Bloodsnout Worg (16-17), southern Silverpine Forest" },
+  { "Claw 1", 1, 1, "Scorpid Worker (3), Valley of Trials, Durotar" },
+  { "Claw 2", 8, 4, "Matriarch Bristlefur (10), southern Elwynn Forest", "Or Venomtail Scorpid (9-10), Durotar" },
+  { "Claw 3", 16, 7, "Black Bear Patriarch (16-17), Loch Modan", "Hills northeast of Thelsamar" },
+  { "Furious Howl 1", 10, 10, "Coldrasp (12), Tirisfal Glades", "Mushroom ring. Wolves only." },
+  { "Shell Shield 1", 20, 15, "Kresh (20), Wailing Caverns", "Turtles only" },
+  { "Dash 1", 30, 15, "Stranglethorn Tiger (32-33), northern Stranglethorn", "The regular tiger, not Young" },
+  { "Dive 1", 30, 15, "Kraul Bat (30-31), Razorfen Kraul" },
+}
+
+-- Hunter trainer visits from 26 to 60 (rank levels from AllThingsHow, updated Nov 8, 2026).
+-- Each entry: level, new spells, new ranks of spells you have.
+ns.trainerVisits = {
+  { 26, { "Rapid Fire", "Track Elementals" }, { "Serpent Sting", "Immolation Trap" } },
+  { 28, { "Frost Trap" }, { "Arcane Shot", "Aspect of the Hawk", "Mend Pet", "Aimed Shot" } },
+  { 30, { "Aspect of the Beast", "Feign Death", "Lacerate" }, { "Distracting Shot", "Scare Beast", "Mongoose Bite" } },
+  { 32, { "Flare", "Enchanted Flare", "Track Demons" }, { "Raptor Strike" } },
+  { 34, { "Explosive Trap" }, { "Serpent Sting", "Disengage" } },
+  { 36, { "Viper Sting" }, { "Arcane Shot", "Mend Pet", "Immolation Trap", "Aimed Shot" } },
+  { 38, {}, { "Aspect of the Hawk", "Wing Clip" } },
+  { 40, { "Aspect of the Pack", "Track Giants", "Volley" }, { "Raptor Strike", "Hunter's Mark", "Distracting Shot", "Freezing Trap", "Aspect of the Beast", "Lacerate" } },
+  { 42, {}, { "Serpent Sting" } },
+  { 44, {}, { "Arcane Shot", "Mend Pet", "Mongoose Bite", "Aimed Shot", "Explosive Trap" } },
+  { 46, { "Aspect of the Wild" }, { "Scare Beast", "Immolation Trap", "Viper Sting" } },
+  { 48, {}, { "Raptor Strike", "Aspect of the Hawk", "Disengage" } },
+  { 50, { "Black Arrow", "Track Dragonkin" }, { "Serpent Sting", "Distracting Shot", "Aspect of the Beast", "Lacerate", "Volley" } },
+  { 52, {}, { "Arcane Shot", "Mend Pet", "Aimed Shot" } },
+  { 54, {}, { "Explosive Trap" } },
+  { 56, {}, { "Raptor Strike", "Immolation Trap", "Viper Sting", "Aspect of the Wild" } },
+  { 58, {}, { "Serpent Sting", "Hunter's Mark", "Aspect of the Hawk", "Mongoose Bite", "Volley" } },
+  { 60, { "Tranquilizing Shot" }, { "Serpent Sting", "Arcane Shot", "Aspect of the Hawk", "Distracting Shot", "Mend Pet", "Wing Clip", "Aimed Shot", "Freezing Trap", "Aspect of the Beast", "Lacerate", "Black Arrow" } },
+}
+
+-- Arrows and quivers for the Gear tab (Senseos WoW Forever item database). Alliance sellers only.
+-- Each entry: required level (nil for a quest reward), item, bonus, where to get it.
+ns.ammo = {
+  { 10, "Medium Quiver", "10% speed", "Frederick Stover (Stormwind), Rallic Finn (Elwynn), Kimberly Hiett (Redridge), Avette Fellwood (Duskwood)" },
+  { nil, "Quiver of the Night Watch", "11% speed", "Quest: The Night Watch, from Commander Althea Ebonlocke in Duskwood (quest level 30)" },
+  { 25, "Razor Arrow", "", "Thurman Mullby (Stormwind), Kimberly Hiett (Redridge), Mabel Solaj and Avette Fellwood (Duskwood)" },
+  { 30, "Heavy Quiver", "12% speed", "Marda Weller (Stormwind), Thalgus Thunderfist (Ironforge), or Leatherworking: 8 Heavy Leather, 2 Fine Thread" },
+  { 40, "Jagged Arrow", "", "Frederick Stover and Thurman Mullby (Stormwind), Kimberly Hiett (Redridge), Avette Fellwood (Duskwood)" },
+  { 40, "Quickdraw Quiver", "13% speed", "Leatherworking: 12 Thick Leather, 1 Cured Thick Hide, 1 Elixir of Agility, 4 Silken Thread" },
+  { 55, "Harpy Hide Quiver", "15% speed", "Stormpike Supply Officer, Alterac Valley" },
+}
+
+-- Hunter class quests for the Class Quests tab. Each entry: level, quest, where and what to do, reward or nil.
+ns.classQuests = {
+  { 10, "The Hunter's Path", "From Jocaste or Dorion in Darnassus, or Ayanna Everstride in Shadowglen. Go see Dazalar in Dolanaar.", nil },
+  { 10, "Taming the Beast (3 parts)", "Dazalar, Dolanaar. Use the Taming Rod on a Webwood Lurker, a Nightsaber Stalker, then a Strigid Screecher.", "Tame Beast" },
+  { 10, "Training the Beast", "Speak to Jocaste in the Cenarion Enclave, Darnassus.", "Your pet spells, like Call Pet and Beast Training" },
+  { 50, "The Hunter's Charm", "From Dorion in Darnassus (42.2, 7.4) or the hunter trainer in Ironforge or Stormwind. Find Ogtinc on the cliffs above the Ruins of Eldarath, Azshara (42.4, 42.6).", "510 XP" },
+  { 52, "Courser Antlers", "Ogtinc, Azshara. Bring a pair of Perfect Courser Antlers.", nil },
+  { 52, "Wavethrashing", "Ogtinc, Azshara. Bring 6 Wavethrasher Scales.", nil },
+  { 52, "The Green Drake", "Ogtinc, Azshara. Bring the Tooth of Morphaz.", nil },
+  { 60, "The Ancient Leaf", "Take the Ancient Petrified Leaf to its owner, Vartrus the Ancient.", nil },
+  { 60, "An Introduction", "Vartrus the Ancient.", nil },
+  { 60, "Stave of the Ancients", "Vartrus the Ancient. Find and destroy four demonic corrupters.", "Ancient Rune Etched Stave" },
+  { 60, "Ancient Sinew Wrapped Lamina", "Hastat the Ancient, Felwood. Bring a Mature Blue Dragon Sinew.", nil },
+  { 60, "A Proper String", "Giver not listed.", "Enchanted Black Dragon Sinew. Put it on the stave to make Rhok'delar, Longbow of the Ancient Keepers." },
+}
+
+-- Profession routes for the Professions tab. Each row: skill range, what to make, how many, what each one takes, where to learn it (nil if the source doesn't say).
+ns.profRoutes = {
+  lw = {
+    { "1-30", "Light Armor Kit", "30", "1 Light Leather", "Known at the start" },
+    { "30-45", "Handstitched Leather Boots", "20", "2 Light Leather, 1 Coarse Thread", "Known at the start" },
+    { "45-55", "Handstitched Leather Pants", "12", "4 Light Leather, 1 Coarse Thread", "Trainer" },
+    { "55-70", "Light Leather Quiver", "25", "4 Light Leather, 2 Coarse Thread", "Trainer" },
+    { "70-85", "Embossed Leather Gloves", "25", "3 Light Leather, 2 Coarse Thread", "Trainer" },
+    { "85-100", "Fine Leather Belt", "25", "6 Light Leather, 2 Coarse Thread", "Trainer" },
+    { "100-115", "Light Leather Pants", "25", "10 Light Leather, 1 Cured Light Hide, 1 Fine Thread", "Trainer" },
+    { "115-125", "Dark Leather Pants", "15", "12 Medium Leather, 1 Gray Dye, 1 Fine Thread", "Trainer" },
+    { "125-130", "Heavy Leather", "7", "5 Medium Leather", "Trainer" },
+    { "130-145", "Hillman's Shoulders", "25", "1 Cured Medium Hide, 4 Medium Leather, 1 Fine Thread", "Trainer" },
+    { "145-155", "Heavy Armor Kit", "15", "5 Heavy Leather, 1 Fine Thread", "Trainer" },
+    { "155-170", "Guardian Pants", "30", "12 Heavy Leather, 2 Bolt of Silk Cloth, 2 Fine Thread", "Trainer" },
+    { "170-180", "Barbaric Shoulders", "15", "8 Heavy Leather, 1 Cured Heavy Hide, 2 Fine Thread", "Trainer" },
+    { "180-185", "Green Leather Bracers", "8", "2 Cured Heavy Hide, 6 Heavy Leather, 1 Green Dye, 1 Fine Thread", "Trainer" },
+    { "185-195", "Guardian Gloves", "15", "4 Heavy Leather, 1 Cured Heavy Hide, 1 Silken Thread", "Trainer" },
+    { "195-205", "Thick Armor Kit", "15", "5 Thick Leather, 1 Silken Thread", "Trainer" },
+    { "205-215", "Nightscape Headband", "25", "5 Thick Leather, 2 Silken Thread", "Trainer" },
+    { "215-230", "Nightscape Cloak", "20", "12 Thick Leather, 4 Silken Thread", "Pattern, skill 205" },
+    { "230-235", "Rugged Armor Kit", "8", "5 Rugged Leather", nil },
+    { "235-255", "Wicked Leather Gauntlets", "20", "8 Rugged Leather, 1 Black Dye, 1 Rune Thread", "Pattern, skill 235" },
+    { "255-270", "Wicked Leather Bracers", "20", "8 Rugged Leather, 1 Black Dye, 1 Rune Thread", "Pattern, skill 240" },
+    { "270-285", "Wicked Leather Headband", "20", "12 Rugged Leather, 1 Black Dye, 1 Rune Thread", "Pattern, skill 255" },
+    { "285-300", "Tooled Leather Crown", "30", "14 Rugged Leather, 1 Rune Thread, 1 Orange Dye", "Pattern, skill 265" },
+  },
+  cook = {
+    { "1-10", "Slitherskin Mackerel", "9", "1 Raw Slitherskin Mackerel", "Tansy Puddlefizz, Dun Morogh, 40c" },
+    { "10-50", "Kaldorei Spider Kabob", "40", "1 Small Spider Leg", "Quest: Recipe of the Kaldorei" },
+    { "50-128", "Longjaw Mud Snapper", "152", "1 Raw Longjaw Mud Snapper", "Tansy Puddlefizz, Dun Morogh, 4s" },
+    { "128-139", "Cooked Crab Claw", "14", "1 Crawler Claw, 1 Mild Spices", "Kendor Kabonka, Stormwind, 4s" },
+    { "139-160", "Bristle Whisker Catfish", "29", "1 Raw Bristle Whisker Catfish", "Catherine Leland, Stormwind, 12s" },
+    { "160-175", "Goblin Deviled Clams", "17", "1 Tangy Clam Meat, 1 Hot Spices", "Trainer, 3s" },
+    { "175-229", "Rockscale Cod", "147", "1 Raw Rockscale Cod", "Heldan Galesong, Darkshore, 22s" },
+    { "229-300", "Undermine Clam Chowder", "116", "2 Zesty Clam Meat, 1 Hot Spices, 1 Ice Cold Milk", "Jabbey, Tanaris, 30s (limited supply)" },
+  },
+  fa = {
+    { "1-50", "Linen Bandage", "65", "1 Linen Cloth", "Known at the start" },
+    { "50-80", "Heavy Linen Bandage", "50", "2 Linen Cloth", "Trainer" },
+    { "80-115", "Wool Bandage", "50", "1 Wool Cloth", "Trainer" },
+    { "115-150", "Heavy Wool Bandage", "50", "2 Wool Cloth", "Trainer" },
+    { "150-180", "Silk Bandage", "45", "1 Silk Cloth", "Trainer" },
+    { "180-210", "Heavy Silk Bandage", "45", "2 Silk Cloth", "Manual: Heavy Silk Bandage, skill 180" },
+    { "210-240", "Mageweave Bandage", "45", "1 Mageweave Cloth", "Manual: Mageweave Bandage, skill 210" },
+    { "240-260", "Heavy Mageweave Bandage", "25", "2 Mageweave Cloth", "Trainer" },
+    { "260-290", "Runecloth Bandage", "45", "1 Runecloth", "Trainer" },
+    { "290-300", "Heavy Runecloth Bandage", "11", "2 Runecloth", "Trainer" },
+  },
+}
