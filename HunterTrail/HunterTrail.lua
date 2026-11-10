@@ -1,4 +1,4 @@
--- Hunter Trail: Kyle's hunter leveling guide in a tabbed window for WoW Forever.
+-- Hunter Trail: a WoW Forever hunter leveling guide in a tabbed window.
 -- /trail toggles the window. The minimap button does the same.
 local ADDON, ns = ...
 
