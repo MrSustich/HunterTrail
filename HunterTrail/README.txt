@@ -30,9 +30,10 @@ HunterTrail is written in its own words. These sites were used as references:
 - Mobalytics (Feor's WoW Forever hunter leveling guide): walkthrough, talents, rotation, consumables, stats, macros
 - AllThingsHow: Leatherworking and First Aid routes, hunter ability ranks
 - Timesaver: Cooking route and prices, leveling gear list
-- ConquestCapped: Cooking tiers, trainer tips
+- ConquestCapped: Cooking tiers, trainer tips, City of Dalaran drops
 - Wowhead: Expert First Aid
 - Guided: rare pets, pet skills and pet training
 - Senseos: ammo and quivers
 - ForeverDB, WoW Forever Codex and UrGameTips: class quests
 - Chaos Boost: dungeon level ranges
+- Warcraft Tavern: Camp Tent and camping rules

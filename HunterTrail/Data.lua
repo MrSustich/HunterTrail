@@ -227,6 +227,10 @@ ns.tabs = {
   }},
 
   { name = "Change Log", lines = {
+    "#2.14.0",
+    "-Camp Tent reminder on every Level Walkthrough bracket from 21 to 60.",
+    "-City of Dalaran: the Fel Ancient drops both Felbough Arm and Garb of Fallen Felbark. Dalaran drops added to the Dungeons tab.",
+    "",
     "#2.13.0",
     "-The minimap button is now a gold H. Click it to open or close HunterTrail, and drag it around the map.",
     "",
@@ -245,12 +249,13 @@ ns.tabs = {
     "-Mobalytics (Feor's WoW Forever hunter leveling guide): walkthrough, talents, rotation, consumables, stats, macros.",
     "-AllThingsHow: Leatherworking and First Aid routes, hunter ability ranks.",
     "-Timesaver: Cooking route and prices, leveling gear list.",
-    "-ConquestCapped: Cooking tiers, trainer tips.",
+    "-ConquestCapped: Cooking tiers, trainer tips, City of Dalaran drops.",
     "-Wowhead: Expert First Aid.",
     "-Guided: rare pets, pet skills and pet training.",
     "-Senseos: ammo and quivers.",
     "-ForeverDB, WoW Forever Codex and UrGameTips: class quests.",
     "-Chaos Boost: dungeon level ranges.",
+    "-Warcraft Tavern: Camp Tent and camping rules.",
   }},
 
 }
@@ -288,6 +293,7 @@ ns.walkthrough = {
     "-17-19 Wailing Caverns (Horde): Venomstrike may drop, but don't farm it. Choose Crescent Staff from Leader of the Fangs.",
   }},
   { lo = 21, hi = 30, lines = {
+    "-Camp Tent: when you stop to rest, set your tent by a campfire and /sit for a minute. You and anyone at the camp get extra XP, up to 5% of a level. One camp object per hour.",
     "-At 20, train Aspect of the Cheetah right away, plus the next Growl rank from the pet trainer.",
     "-Night elves go to Ashenvale. Horde goes to Southern Barrens or Stonetalon.",
     "-Alliance: the Raptor's End bow comes from a raptor quest chain at Whelgar's Excavation Site in the Wetlands. Mobs are 22-27 and the last is 29, so try it around 25.",
@@ -299,8 +305,10 @@ ns.walkthrough = {
     "-24-28 Blackfathom Deeps: Naga Heartpiercer and Fallenroot Longbow. Running it for the quests gives you two chances at a bow.",
     "-24-28 Excavation Site: Golemsight Long Gun, a great pick with 6 Agility.",
     "-28-32 City of Dalaran: go for the Felbough Arm (melee) before the Gravespike Repeater. Garb of Fallen Felbark and Unstable Crystalline Shoulderpads drop here too.",
+    "-The Fel Ancient drops both the Felbough Arm and the Garb of Fallen Felbark, so one kill gives you two chances.",
   }},
   { lo = 31, hi = 40, lines = {
+    "-Camp Tent: when you stop to rest, set your tent by a campfire and /sit for a minute. You and anyone at the camp get extra XP, up to 5% of a level. One camp object per hour.",
     "-Get Feign Death the moment you hit 30. It drops aggro and lets you skip pulls.",
     "-In Stranglethorn Vale, finish the Nesingwary's Expedition chain for the Master Hunter's Bow or Rifle.",
     "",
@@ -308,11 +316,12 @@ ns.walkthrough = {
     "-29-33 Gnomeregan (best for Alliance): Triprunner Dungarees is a quest reward. Watch for the Thermaplugg Medal of Honor and the Glass Shooter, a rare spawn with low odds.",
   }},
   { lo = 41, hi = 50, lines = {
+    "-Camp Tent: when you stop to rest, set your tent by a campfire and /sit for a minute. You and anyone at the camp get extra XP, up to 5% of a level. One camp object per hour.",
     "-Shen'dralas is new in Forever. You'll find it in southern Desolace near the Valley of Bones.",
     "-Corpsefeeder, a level 45 elite, is soloable as Beast Mastery. It gives the Clacking Carapace Spaulders, 1g 30s and 4,500 XP.",
   }},
   { lo = 51, hi = 60, lines = {
-    "No steps for 51-60 yet.",
+    "-Camp Tent: when you stop to rest, set your tent by a campfire and /sit for a minute. You and anyone at the camp get extra XP, up to 5% of a level. One camp object per hour.",
   }},
 }
 
@@ -434,7 +443,7 @@ ns.dungeons = {
   { 22, 28, "Blackfathom Deeps", nil, { { "Fallenroot Longbow", "Lorgus Jett" }, { "Band of the Fist", "Quest reward" } } },
   { 24, 29, "Excavation Site", nil, { { "Golemsight Long Gun", "Relic Guardian" }, { "Garb of Florid Feathers", "Shadetooth" }, { "Explorer's League Dustcover", "Quest reward" } } },
   { 25, 29, "The Stockade", nil, { { "Defias Jailbreakers", "Bazil Thredd" }, { "Belt of Vindication", "Quest reward" } } },
-  { 28, 33, "City of Dalaran", "New, attunement starts in Southshore", {} },
+  { 28, 33, "City of Dalaran", "New, attunement starts in Southshore", { { "Felbough Arm", "Fel Ancient" }, { "Unstable Crystalline Shoulderpads", "Unstable Sentinel" } } },
   { 29, 38, "Gnomeregan", nil, { { "Triprunner Dungarees", "Quest reward" } } },
   { 29, 38, "Razorfen Kraul", nil, { { "Geomancer Headdress", "Roogug" }, { "Roogug's Severed Head", "Roogug" }, { "Armor Piercer", "Razorfen Spearhide" }, { "Monkey Ring", "Quest reward" } } },
   { 30, 46, "Scarlet Monastery", "Graveyard 30-38, Library 33-41, Armory 36-44, Cathedral 38-46", { { "Spellsever Crossbow", "Arcanist Doan" }, { "Raging Berserker's Helm", "Herod" }, { "Scorn's Icy Choker", "Scorn" }, { "Scarlet Chestpiece", "Scarlet Champion" }, { "Scarlet Gauntlets", "Scarlet Centurion" } } },

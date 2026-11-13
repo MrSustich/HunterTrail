@@ -2,7 +2,7 @@
 ## Title: Hunter Trail
 ## Notes: Beast Mastery hunter leveling guide for WoW Forever, one tab per section. /trail to open.
 ## Author: Kyle
-## Version: 2.13.0
+## Version: 2.14.0
 ## SavedVariables: HunterTrailDB
 ## SavedVariablesPerCharacter: HunterTrailCharDB
 
