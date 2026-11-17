@@ -37,3 +37,4 @@ HunterTrail is written in its own words. These sites were used as references:
 - ForeverDB, WoW Forever Codex and UrGameTips: class quests
 - Chaos Boost: dungeon level ranges
 - Warcraft Tavern: Camp Tent and camping rules
+- Blizzard: WoW Forever hotfix notes

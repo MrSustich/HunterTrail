@@ -128,7 +128,7 @@ ns.tabs = {
     "-When they bunch up, Multi-Shot gets a lot of value.",
     "-Treat your pet as extra damage: send it at its own mob, or let it clean up weak ones while you keep the ranged one at a distance.",
     "",
-    "-Mobalytics' Nov 7 testing found Summon Hawk hits for less than Arcane Shot, so use Arcane Shot instead for now.",
+    "-Summon Hawk got buffed in Blizzard's Nov 10 hotfix: the Hawk's melee hits about 80% harder, and Summon Hawk now costs 11% of base mana, the same as Arcane Shot. The older tip to skip it for Arcane Shot came before this change.",
   }},
 
   { name = "Consumables", lines = {
@@ -227,6 +227,9 @@ ns.tabs = {
   }},
 
   { name = "Change Log", lines = {
+    "#2.15.0",
+    "-Gameplay and Rotation: Summon Hawk note updated for Blizzard's Nov 10 hotfix.",
+    "",
     "#2.14.0",
     "-Camp Tent reminder on every Level Walkthrough bracket from 21 to 60.",
     "-City of Dalaran: the Fel Ancient drops both Felbough Arm and Garb of Fallen Felbark. Dalaran drops added to the Dungeons tab.",
@@ -256,6 +259,7 @@ ns.tabs = {
     "-ForeverDB, WoW Forever Codex and UrGameTips: class quests.",
     "-Chaos Boost: dungeon level ranges.",
     "-Warcraft Tavern: Camp Tent and camping rules.",
+    "-Blizzard: WoW Forever hotfix notes.",
   }},
 
 }
